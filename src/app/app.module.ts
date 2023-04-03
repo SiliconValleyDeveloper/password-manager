@@ -11,7 +11,7 @@ import { SideListComponent } from './side-list/side-list.component';
 import { PasswordListComponent } from './password-list/password-list.component';
 import { LoginComponent } from './login/login.component';
 import { FormsModule } from '@angular/forms';
-
+import {provideAuth, getAuth } from '@angular/fire/auth';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,6 +26,7 @@ import { FormsModule } from '@angular/forms';
     FormsModule,
     
     provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideAuth(()=> getAuth()),
     provideFirestore(() => getFirestore())
   ],
   providers: [],
